@@ -12,6 +12,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 @app.route('/')
 def index():
     if 'username' in session:
+        print(app.name)
         return f'Logged in as {session["username"]}'
     return 'You are not logged in'
 
