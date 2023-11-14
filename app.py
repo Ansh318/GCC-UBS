@@ -1,45 +1,49 @@
-import flask
-from flask import request, jsonify, redirect, url_for, Response
+#!/usr/bin/env python
+# encoding: utf-8
+import json
+from flask import Flask, request, jsonify
 
-app = flask.Flask(__name__)
-app.config['DEBUG'] = True
+app = Flask(__name__)
 
-from flask import session
 
-# Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+@app.route('/', methods=['GET'])
+def query_records():
+    name = request.args.get('name')
+    with open('/tmp/data.txt', 'r') as f:
+        data = f.read()
+        records = json.loads(data)
+        for record in records:
+            if record['name'] == name:
+                return jsonify(record)
+        return jsonify({'error': 'data not found'})
 
-@app.route('/')
-def index():
-    print(app.name)
-    if 'username' in session:
 
-        return f'Logged in as {session["username"]}'
-    return 'You are not logged in'
+@app.route('/', methods=['PUT'])
+def create_record():
+    record = json.loads(request.data)
+    return jsonify(record)
 
-@app.route('/guide', methods=["POST"])
-def add_guide():
-    title = request.json['title']
-    content = request.json['content']
-    return f'{title} is cool'
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        session['username'] = request.form['username']
-        return redirect(url_for('index'))
-    return '''
-        <form method="post">
-            <p><input type=text name=username>
-            <p><input type=submit value=Login>
-        </form>
-    '''
+@app.route('/', methods=['POST'])
+def update_record():
+    record = json.loads(request.data)
+    return jsonify(record)
 
-@app.route('/logout')
-def logout():
-    # remove the username from the session if it's there
-    session.pop('username', None)
-    return redirect(url_for('index'))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.route('/', methods=['DELETE'])
+def delte_record():
+    record = json.loads(request.data)
+    new_records = []
+    with open('/tmp/data.txt', 'r') as f:
+        data = f.read()
+        records = json.loads(data)
+        for r in records:
+            if r['name'] == record['name']:
+                continue
+            new_records.append(r)
+    with open('/tmp/data.txt', 'w') as f:
+        f.write(json.dumps(new_records, indent=2))
+    return jsonify(record)
+
+
+app.run(debug=True)
