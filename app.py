@@ -12,6 +12,6 @@ def hello():
         headers = {"Content-Type": "application/json"}
         return make_response(jsonify(my_dict), 200, headers)
     if request.method == 'POST':
-        my_dict = {'key': request.data}
+        my_dict = {'key': request.args.get('language')}
         headers = {"Content-Type": "application/json"}
         return make_response(jsonify(my_dict), 200, headers)
