@@ -18,31 +18,9 @@ def query_records():
         return jsonify({'error': 'data not found'})
 
 
-@app.route('/', methods=['PUT'])
-def create_record():
-    record = json.loads(request.data)
-    return jsonify(record)
-
-
-@app.route('/', methods=['POST'])
+@app.route('/hi', methods=['POST'])
 def update_record():
     record = json.loads(request.data)
-    return jsonify(record)
-
-
-@app.route('/', methods=['DELETE'])
-def delte_record():
-    record = json.loads(request.data)
-    new_records = []
-    with open('/tmp/data.txt', 'r') as f:
-        data = f.read()
-        records = json.loads(data)
-        for r in records:
-            if r['name'] == record['name']:
-                continue
-            new_records.append(r)
-    with open('/tmp/data.txt', 'w') as f:
-        f.write(json.dumps(new_records, indent=2))
     return jsonify(record)
 
 
