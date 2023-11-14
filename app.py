@@ -1,28 +1,34 @@
 import flask
-from flask import request, jsonify
+from flask import request, jsonify, redirect, url_for
 
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True
 
+from flask import session
 
-@app.route('/', methods=['GET'])
-def home():
-    return '''<h1>Hello World</h1>'''
+# Set the secret key to some random bytes. Keep this really secret!
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
+@app.route('/')
+def index():
+    if 'username' in session:
+        return f'Logged in as {session["username"]}'
+    return 'You are not logged in'
 
-@app.route("/login", methods=['POST'])
-def convert():
-    user = request.get_json()
-    return user
-    if (user['username'] == 'admin' and user['password'] == '1234'):
-        return jsonify({'success': True, 'message': 'Valid user'})
-    return jsonify({'success': False, 'message': 'Invalid user'})
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('index'))
+    return '''
+        <form method="post">
+            <p><input type=text name=username>
+            <p><input type=submit value=Login>
+        </form>
+    '''
 
-
-@app.route("/file-reorganization", methods=['POST'])
-def file_reorg():
-    return "hello"
-
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+@app.route('/logout')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    return redirect(url_for('index'))
