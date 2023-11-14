@@ -12,6 +12,7 @@ def home():
 @app.route("/login", methods=['POST'])
 def convert():
     user = request.get_json()
+    return user
     if (user['username'] == 'admin' and user['password'] == '1234'):
         return jsonify({'success': True, 'message': 'Valid user'})
     return jsonify({'success': False, 'message': 'Invalid user'})
