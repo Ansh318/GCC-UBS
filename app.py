@@ -1,5 +1,5 @@
 import flask
-from flask import request, jsonify, redirect, url_for
+from flask import request, jsonify, redirect, url_for, Response
 
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True
@@ -21,7 +21,8 @@ def index():
 def add_guide():
     title = request.json['title']
     content = request.json['content']
-    return jsonify(request)
+    ret = jsonify(request)
+    return Response(response=ret, status=200,mimetype="application/json")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
