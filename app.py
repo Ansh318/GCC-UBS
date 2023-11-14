@@ -17,6 +17,12 @@ def index():
         return f'Logged in as {session["username"]}'
     return 'You are not logged in'
 
+@app.route('/guide', methods=["POST"])
+def add_guide():
+    title = request.json['title']
+    content = request.json['content']
+    return jsonify(request)
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
