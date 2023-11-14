@@ -21,8 +21,7 @@ def index():
 def add_guide():
     title = request.json['title']
     content = request.json['content']
-    ret = jsonify(request)
-    return Response(response=ret, status=200,mimetype="application/json")
+    return f'{title} is cool'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
