@@ -32,5 +32,8 @@ kick off an effectively CRON job which updates the app after a pull request has 
 
 # Working Locally
 
-I am not 100% how to use it locally; most of the repo setup to support Heroku so that is why that there
-some extra things
+Call `flask run` on the terminal to start the local server. You can then use this
+with Postman to make local calls when you have downloaded the local Postman connector.
+
+It should work fairly straightforwardly; however, if you get a `403` Error on Postman
+then all you need to do is start and restart the server a few times. 
