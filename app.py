@@ -1,12 +1,6 @@
 from flask import Flask, make_response, request, jsonify
 
-from solutions.coin_change import coin_change_solution
-from solutions.data_encryption import data_encryption_solution
-from solutions.file_reorganization import file_reorganization_solution
-from solutions.portfolio_operations import portfolio_operations_solution
-from solutions.risk_mitigation import risk_mitigation_solution
-from solutions.time_intervals import time_intervals_solution
-
+# Create Flask's `app` object
 app = Flask(__name__)
 
 
@@ -29,7 +23,6 @@ def file_reorganization():
     my_dict = {}
 
     # Do Work
-    result = file_reorganization_solution()
 
     # Return Value
     return make_response(jsonify(my_dict), 200, headers)
@@ -41,7 +34,6 @@ def portfolio_operations():
     my_dict = {}
 
     # Do Work
-    result = portfolio_operations_solution()
 
     # Return Value
     return make_response(jsonify(my_dict), 200, headers)
@@ -53,7 +45,6 @@ def time_intervals():
     my_dict = {}
 
     # Do Work
-    result = time_intervals_solution()
 
     # Return Value
     return make_response(jsonify(my_dict), 200, headers)
@@ -65,7 +56,6 @@ def data_encryption():
     my_dict = {}
 
     # Do Work
-    result = data_encryption_solution()
 
     # Return Value
     return make_response(jsonify(my_dict), 200, headers)
@@ -77,7 +67,6 @@ def coin_change():
     my_dict = {}
 
     # Do Work
-    result = coin_change_solution()
 
     # Return Value
     return make_response(jsonify(my_dict), 200, headers)
@@ -89,7 +78,6 @@ def risk_mitigation():
     my_dict = {}
 
     # Do Work
-    result = risk_mitigation_solution()
 
     # Return Value
     return make_response(jsonify(my_dict), 200, headers)
