@@ -74,10 +74,8 @@ def coin_change():
     # Set Up
     headers = {"Content-Type": "application/json"}
     inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
-
     # Do Work
-    results = file_reorganization_solution(inputs)
-
+    results = coin_change_solution(inputs)
     # Return Value
     return make_response(jsonify(results), 200, headers)
 
