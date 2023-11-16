@@ -30,7 +30,7 @@ def hello():
 def profit_maximization():
     # Set Up
     headers = {"Content-Type": "application/json"}
-    inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
+    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
     results = profit_maximization_solution(inputs)
     return make_response(jsonify(results), 200, headers)
 
@@ -39,7 +39,7 @@ def profit_maximization():
 def file_reorganization():
     # Set Up
     headers = {"Content-Type": "application/json"}
-    inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
+    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
     results = file_reorganization_solution(inputs)
     return make_response(jsonify(results), 200, headers)
 
@@ -58,7 +58,7 @@ def portfolio_operations():
 def mlmm_program():
     # Set Up
     headers = {"Content-Type": "application/json"}
-    inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
+    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
     results = mlmm_program_solution(inputs)
     return make_response(jsonify(results), 200, headers)
 
