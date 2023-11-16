@@ -8,6 +8,7 @@ from solutions.data_encryption import data_encryption_solution
 from solutions.coin_change import coin_change_solution
 from solutions.risk_mitigation import risk_mitigation_solution
 from solutions.time_intervals import time_intervals_solution
+from solutions.profit_maximization import profit_maximization_solution
 
 app = Flask(__name__)
 
@@ -21,6 +22,14 @@ def hello():
     if request.method == 'POST':
         my_dict = {'key': request.args.get('language')}
         return make_response(jsonify(my_dict), 200, headers)
+
+@app.post("/profit-maximization")
+def profit_maximization():
+    # Set Up
+    headers = {"Content-Type": "application/json"}
+    inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
+    results = profit_maximization_solution(inputs)
+    return make_response(jsonify(results), 200, headers)
 
 
 @app.post("/file-reorganization")
