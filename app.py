@@ -87,7 +87,7 @@ def time_intervals():
     # Return Value
     return make_response(jsonify(results), 200, headers)
 
-@app.post("/fradulent-transactions")
+@app.post("/fraudulent-transactions")
 def fraudulent_transactions():
     # Set Up
     headers = {"Content-Type": "application/json"}
