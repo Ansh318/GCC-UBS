@@ -124,3 +124,7 @@ def risk_mitigation():
 
     # Return Value
     return make_response(jsonify(results), 200, headers)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
