@@ -36,4 +36,16 @@ Call `flask run` on the terminal to start the local server. You can then use thi
 with Postman to make local calls when you have downloaded the local Postman connector.
 
 It should work fairly straightforwardly; however, if you get a `403` Error on Postman
-then all you need to do is start and restart the server a few times. 
+then all you need to do is start and restart the server a few times.
+
+# Status Report
+
+- [ ] Time Intervals
+- [ ] Risk Mitigation
+- [ ] Fraudulent Transactions
+- [X] Profit Maximizations
+- [X] Portfolio Operations
+- [X] MLMM
+- [X] File Reorganization
+- [X] Data Encryption
+- [X] Coin Change
