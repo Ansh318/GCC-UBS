@@ -3,10 +3,8 @@ import math
 
 def data_encryption_solution(input_data):
     result = {'answer': []}
-    for i in range(len(input_data)):
-        input_data[i] = input_data[i].replace(" ", "")
-        input_str = input_data[i]
-        encrypt_str = encrypted(input_str)
+    for i in input_data:
+        encrypt_str = encrypted(i.replace(" ", ""))
         result['answer'].append(encrypt_str)
     return result
 
