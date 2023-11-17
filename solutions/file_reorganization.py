@@ -1,5 +1,8 @@
+from collections import Counter
+
+
 def file_reorganization_solution(data):
-    result = {'answer' : []}
+    result = {'answer': []}
     for file_name in data:
         # Count the occurrences of each letter in the input string
         letter_counts = Counter(file_name)

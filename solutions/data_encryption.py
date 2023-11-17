@@ -1,5 +1,8 @@
-def data_encryption_solution():
-    result = {'answer':[]}
+import math
+
+
+def data_encryption_solution(input_data):
+    result = {'answer': []}
     for i in range(len(input_data)):
         input_data[i] = input_data[i].replace(" ", "")
         input_str = input_data[i]
@@ -7,10 +10,11 @@ def data_encryption_solution():
         result['answer'].append(encrypt_str)
     return result
 
+
 def encrypted(input_string):
     matrix_rows = math.floor(math.sqrt(len(input_string)))
     matrix_cols = math.ceil(math.sqrt(len(input_string)))
-     # Ensure rows * columns >= string_length
+    # Ensure rows * columns >= string_length
     while matrix_rows * matrix_cols < len(input_string):
         matrix_rows += 1
     # Initialize the matrix

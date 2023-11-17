@@ -1,17 +1,14 @@
-import json
-
 from flask import Flask, make_response, request, jsonify
 
-from solutions.profit_maximization import profit_maximization_solution
-from solutions.file_reorganization import file_reorganization_solution
-from solutions.portolio_operations import portfolio_operations_solution
-from solutions.mlmm_Program import mlmm_program_solution
-from solutions.data_encryption import data_encryption_solution
-from solutions.time_intervals import time_intervals_solution
-from solutions.fraudulent_transactions import fraudulent_transactions_solution
 from solutions.coin_change import coin_change_solution
+from solutions.data_encryption import data_encryption_solution
+from solutions.file_reorganization import file_reorganization_solution
+from solutions.fraudulent_transcations import fraudulent_transactions_solution
+from solutions.mlmm import mlmm_program_solution
+from solutions.portfolio_operations import portfolio_operations_solution
+from solutions.profit_maximization import profit_maximization_solution
 from solutions.risk_mitigation import risk_mitigation_solution
-
+from solutions.time_intervals import time_intervals_solution
 
 app = Flask(__name__)
 
@@ -25,6 +22,7 @@ def hello():
     if request.method == 'POST':
         my_dict = {'key': request.args.get('language')}
         return make_response(jsonify(my_dict), 200, headers)
+
 
 @app.post("/profit-maximization")
 def profit_maximization():
@@ -54,6 +52,8 @@ def portfolio_operations():
     # Return Value
     return make_response(jsonify(results), 200, headers)
 
+
+# noinspection SpellCheckingInspection
 @app.post("/mlmm-program")
 def mlmm_program():
     # Set Up
@@ -61,6 +61,7 @@ def mlmm_program():
     inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
     results = mlmm_program_solution(inputs)
     return make_response(jsonify(results), 200, headers)
+
 
 @app.post("/data-encryption")
 def data_encryption():
@@ -87,6 +88,7 @@ def time_intervals():
     # Return Value
     return make_response(jsonify(results), 200, headers)
 
+
 @app.post("/fraudulent-transactions")
 def fraudulent_transactions():
     # Set Up
@@ -98,6 +100,7 @@ def fraudulent_transactions():
 
     # Return Value
     return make_response(jsonify(results), 200, headers)
+
 
 @app.post("/coin-change")
 def coin_change():
