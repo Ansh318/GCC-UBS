@@ -6,7 +6,7 @@ from flask import Flask, make_response, request, jsonify
 from solutions.coin_change import coin_change_solution
 from solutions.data_encryption import data_encryption_solution
 from solutions.file_reorganization import file_reorganization_solution
-from solutions.fraudulent_transcations import fraudulent_transactions_solution
+from solutions.fraudulent_transactions import fraudulent_transactions_solution
 from solutions.mlmm import mlmm_program_solution
 from solutions.portfolio_operations import portfolio_operations_solution
 from solutions.profit_maximization import profit_maximization_solution
@@ -32,7 +32,7 @@ def hello():
 def profit_maximization():
     # Set Up
     headers = {"Content-Type": "application/json"}
-    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
+    inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
     results = profit_maximization_solution(inputs)
     return make_response(jsonify(results), 200, headers)
 
@@ -41,7 +41,7 @@ def profit_maximization():
 def file_reorganization():
     # Set Up
     headers = {"Content-Type": "application/json"}
-    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
+    inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
     results = file_reorganization_solution(inputs)
     return make_response(jsonify(results), 200, headers)
 
@@ -50,7 +50,7 @@ def file_reorganization():
 def portfolio_operations():
     # Set Up
     headers = {"Content-Type": "application/json"}
-    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
+    inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
     # Do Work
     results = portfolio_operations_solution(inputs)
     # Return Value
