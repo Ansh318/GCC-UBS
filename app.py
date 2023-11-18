@@ -26,7 +26,7 @@ def hello():
         return make_response(jsonify(my_dict), 200, headers)
 
 
-@app.route("/profit-maximization", methods=['GET', 'POST'])
+@app.post("/profit-maximization")
 def profit_maximization():
     # Set Up
     headers = {"Content-Type": "application/json"}
@@ -35,7 +35,7 @@ def profit_maximization():
     return make_response(jsonify(results), 200, headers)
 
 
-@app.route("/file-reorganization", methods=['GET', 'POST'])
+@app.post("/file-reorganization")
 def file_reorganization():
     # Set Up
     headers = {"Content-Type": "application/json"}
@@ -44,7 +44,7 @@ def file_reorganization():
     return make_response(jsonify(results), 200, headers)
 
 
-@app.route("/portfolio-operations", methods=['GET', 'POST'])
+@app.post("/portfolio-operations")
 def portfolio_operations():
     # Set Up
     headers = {"Content-Type": "application/json"}
@@ -56,7 +56,7 @@ def portfolio_operations():
 
 
 # noinspection SpellCheckingInspection
-@app.route("/mlmm-program", methods=['GET', 'POST'])
+@app.post("/mlmm-program")
 def mlmm_program():
     # Set Up
     headers = {"Content-Type": "application/json"}
@@ -65,7 +65,7 @@ def mlmm_program():
     return make_response(jsonify(results), 200, headers)
 
 
-@app.route("/data-encryption", methods=['GET', 'POST'])
+@app.post("/data-encryption")
 def data_encryption():
     # Setup
     headers = {"Content-Type": "application/json"}
@@ -78,7 +78,7 @@ def data_encryption():
     return make_response(jsonify(results), 200, headers)
 
 
-@app.route("/time-intervals", methods=['GET', 'POST'])
+@app.post("/time-intervals")
 def time_intervals():
     # Set Up
     headers = {"Content-Type": "application/json"}
@@ -91,7 +91,7 @@ def time_intervals():
     return make_response(jsonify(results), 200, headers)
 
 
-@app.route("/fraudulent-transactions", methods=['GET', 'POST'])
+@app.post("/fraudulent-transactions")
 def fraudulent_transactions():
     # Set Up
     headers = {"Content-Type": "application/json"}
@@ -104,7 +104,7 @@ def fraudulent_transactions():
     return make_response(jsonify(results), 200, headers)
 
 
-@app.route("/coin-change", methods=['GET', 'POST'])
+@app.post("/coin-change")
 def coin_change():
     # Set Up
     headers = {"Content-Type": "application/json"}
@@ -115,7 +115,7 @@ def coin_change():
     return make_response(jsonify(results), 200, headers)
 
 
-@app.route("/risk-mitigation", methods=['GET', 'POST'])
+@app.post("/risk-mitigation")
 def risk_mitigation():
     # Set Up
     headers = {"Content-Type": "application/json"}
