@@ -32,7 +32,10 @@ def hello():
 def profit_maximization():
     # Set Up
     headers = {"Content-Type": "application/json"}
+
     inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
+
+    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
     results = profit_maximization_solution(inputs)
     return make_response(jsonify(results), 200, headers)
 
@@ -41,7 +44,11 @@ def profit_maximization():
 def file_reorganization():
     # Set Up
     headers = {"Content-Type": "application/json"}
+
     inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
+
+    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
+
     results = file_reorganization_solution(inputs)
     return make_response(jsonify(results), 200, headers)
 
@@ -50,7 +57,10 @@ def file_reorganization():
 def portfolio_operations():
     # Set Up
     headers = {"Content-Type": "application/json"}
+
     inputs = json.loads(request.args.get('inputs'))  # do some cleanup / conversion to as expected from JSON
+
+    inputs = request.args.get('inputs')  # do some cleanup / conversion to as expected from JSON
     # Do Work
     results = portfolio_operations_solution(inputs)
     # Return Value
@@ -130,5 +140,7 @@ def risk_mitigation():
     return make_response(jsonify(results), 200, headers)
 
 
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
+
