@@ -1,4 +1,5 @@
 import json
+import os
 
 from flask import Flask, make_response, request, jsonify
 
@@ -13,6 +14,7 @@ from solutions.risk_mitigation import risk_mitigation_solution
 from solutions.time_intervals import time_intervals_solution
 
 app = Flask(__name__)
+port = int(os.environ.get('PORT', 5000))
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -128,3 +130,5 @@ def risk_mitigation():
     return make_response(jsonify(results), 200, headers)
 
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=port)
