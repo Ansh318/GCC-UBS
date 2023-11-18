@@ -5,7 +5,7 @@ from flask import Flask, make_response, request, jsonify
 from solutions.coin_change import coin_change_solution
 from solutions.data_encryption import data_encryption_solution
 from solutions.file_reorganization import file_reorganization_solution
-from solutions.fraudulent_transcations import fraudulent_transactions_solution
+from solutions.fraudulent_transactions import fraudulent_transactions_solution
 from solutions.mlmm import mlmm_program_solution
 from solutions.portfolio_operations import portfolio_operations_solution
 from solutions.profit_maximization import profit_maximization_solution
